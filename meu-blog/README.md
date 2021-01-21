@@ -1,24 +1,11 @@
-# meu-blog
+# meu-blog - Para rodar o projeto, siga os passos abaixo:
 
-## Project setup
+## 1. Instalação das dependências.
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### 2. Execução do projeto
 ```
 npm run serve
 ```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
