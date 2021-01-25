@@ -1,54 +1,70 @@
 <template>
-    <div class="content">
-        <nav class="breadcrumb-menu">
-            <div class="nav-wrapper">
-                <div class="col s12">
-                <a href="#!" class="breadcrumb">Início</a>
-                <a href="#!" class="breadcrumb">Blogs</a>
-                <a href="#!" class="breadcrumb">Novo Blog</a>
+    <div>
+        <menu-superior />
+
+        <div class="page-content">
+            <menu-lateral />
+
+            <div class="content">
+                <nav class="breadcrumb-menu">
+                    <div class="nav-wrapper">
+                        <div class="col s12">
+                        <a href="#!" class="breadcrumb">Início</a>
+                        <a href="#!" class="breadcrumb">Blogs</a>
+                        <a href="#!" class="breadcrumb">Novo Blog</a>
+                        </div>
+                    </div>
+                </nav>
+
+                <div class="new-blog-content card">
+                    <h4> <i class="fab fa-microblog"></i> Novo Blog</h4>
+
+                    <div class="row">
+                        <form class="col s12">
+                            <div class="row">
+                            <div class="input-field col s12">
+                                <input id="title" type="text" class="validate" v-model="titulo">
+                                <label for="title">Título</label>
+                            </div>
+                            </div>
+
+                            <div class="row">
+                            <div class="input-field col s12">
+                                <textarea id="description" class="materialize-textarea" v-model="descricao"></textarea>
+                                <label for="description">Descrição</label>
+                            </div>
+                            </div>
+
+                            <div class="row">
+                            <div class="input-field col s12">
+                                <input id="assunto" type="text" class="validate" v-model="assunto">
+                                <label for="assunto">Assunto</label>
+                            </div>
+                            </div>
+
+                            <div class="row buttons-div">
+                            <router-link to="/blogs" class="waves-effect waves-light btn red"><i class="material-icons right">close</i>CANCELAR</router-link>
+                            <a v-on:click="cadastrarBlog" class="waves-effect waves-light btn green"><i class="material-icons right">check</i>CADASTRAR</a>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
-        </nav>
-
-        <div class="new-blog-content card">
-            <h4> <i class="fab fa-microblog"></i> Novo Blog</h4>
-
-            <div class="row">
-                <form class="col s12">
-                    <div class="row">
-                    <div class="input-field col s12">
-                        <input id="title" type="text" class="validate" v-model="titulo">
-                        <label for="title">Título</label>
-                    </div>
-                    </div>
-
-                    <div class="row">
-                    <div class="input-field col s12">
-                        <textarea id="description" class="materialize-textarea" v-model="descricao"></textarea>
-                        <label for="description">Descrição</label>
-                    </div>
-                    </div>
-
-                    <div class="row">
-                    <div class="input-field col s12">
-                        <input id="assunto" type="text" class="validate" v-model="assunto">
-                        <label for="assunto">Assunto</label>
-                    </div>
-                    </div>
-
-                    <div class="row buttons-div">
-                    <router-link to="/blogs" class="waves-effect waves-light btn red"><i class="material-icons right">close</i>CANCELAR</router-link>
-                    <a v-on:click="cadastrarBlog" class="waves-effect waves-light btn green"><i class="material-icons right">check</i>CADASTRAR</a>
-                    </div>
-                </form>
-            </div>
         </div>
-    </div>
+  </div>
 </template>
 
 <script>
+
+import MenuLateral from './MenuLateral.vue'
+import MenuSuperior from './MenuSuperior.vue'
+
 export default {
-    name: 'novo-blog'
+    name: 'novo-blog',
+    components: {
+        MenuSuperior,
+        MenuLateral
+    }
 }
 </script>
 

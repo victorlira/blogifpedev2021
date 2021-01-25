@@ -1,74 +1,91 @@
 <template>
-    <div class="content">
-        <nav class="breadcrumb-menu">
-            <div class="nav-wrapper">
-                <div class="col s12">
-                    <a href="#!" class="breadcrumb">Início</a>
-                    <a href="#!" class="breadcrumb">Blogs</a>
-                </div>
-            </div>
-        </nav>
+    <div>
+        <menu-superior />
 
-        <div class="new-blog-content card">
-            <h4> <i class="fab fa-microblog"></i> Blogs</h4>
+        <div class="page-content">
+            <menu-lateral />
 
-            <router-link to="/novo-blog" class="button-add btn-floating waves-effect waves-light green"><i class="material-icons">add</i></router-link>
+            <div class="content">
+                <nav class="breadcrumb-menu">
+                    <div class="nav-wrapper">
+                        <div class="col s12">
+                            <a href="#!" class="breadcrumb">Início</a>
+                            <a href="#!" class="breadcrumb">Blogs</a>
+                        </div>
+                    </div>
+                </nav>
 
-            <div class="row">
-                <div class="card filtros-card">
+                <div class="new-blog-content card">
+                    <h4> <i class="fab fa-microblog"></i> Blogs</h4>
+
+                    <router-link to="/novo-blog" class="button-add btn-floating waves-effect waves-light green"><i class="material-icons">add</i></router-link>
+
                     <div class="row">
-                        <div class="input-field col s5">
-                            <input v-model="filtroTitulo" placeholder="Pesquisar por título..." id="title" type="text" class="validate">
-                            <label for="title">Título</label>
-                        </div>
-                        
-                        <div class="input-field col s5">
-                            <input v-model="filtroDescricao" placeholder="Pesquisar por descrição..." id="description" type="text" class="validate">
-                            <label for="description">Descrição</label>
-                        </div>
+                        <div class="card filtros-card">
+                            <div class="row">
+                                <div class="input-field col s5">
+                                    <input v-model="filtroTitulo" placeholder="Pesquisar por título..." id="title" type="text" class="validate">
+                                    <label for="title">Título</label>
+                                </div>
+                                
+                                <div class="input-field col s5">
+                                    <input v-model="filtroDescricao" placeholder="Pesquisar por descrição..." id="description" type="text" class="validate">
+                                    <label for="description">Descrição</label>
+                                </div>
 
-                        <div class="input-field col s2 botao-filtrar-div">
-                            <a v-on:click="buscar" class="waves-effect waves-light btn blue botao-filtrar"><i class="material-icons left">search</i>filtrar</a>
+                                <div class="input-field col s2 botao-filtrar-div">
+                                    <a v-on:click="buscar" class="waves-effect waves-light btn blue botao-filtrar"><i class="material-icons left">search</i>filtrar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <table v-if="blogsFiltrados.length > 0" class="striped">
+                            <thead>
+                                <tr>
+                                    <th>Título</th>
+                                    <th>Descrição</th>
+                                    <th>Asssunto</th>
+                                    <th class="edit-remove-column">Editar/Remover</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr v-for="blog in blogsFiltrados" v-bind:key="blog">
+                                    <td>{{ blog.titulo }}</td>
+                                    <td>{{ blog.descricao }}</td>
+                                    <td>{{ blog.assunto }}</td>
+                                    <td class="edit-remove-column">
+                                        <i class="fas fa-edit"></i>
+                                        <i v-on:click="remover(blog.id)" class="fas fa-trash"></i>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <div v-if="blogsFiltrados.length == 0" class="alert alert-warning" role="alert">
+                            <i class="far fa-frown"></i>Não há blogs cadastrados para os filtros especificados.
                         </div>
                     </div>
                 </div>
             </div>
-
-            <div class="row">
-                <table v-if="blogsFiltrados.length > 0" class="striped">
-                    <thead>
-                        <tr>
-                            <th>Título</th>
-                            <th>Descrição</th>
-                            <th>Asssunto</th>
-                            <th class="edit-remove-column">Editar/Remover</th>
-                        </tr>
-                    </thead>
-
-                    <tbody>
-                        <tr v-for="blog in blogsFiltrados" v-bind:key="blog">
-                            <td>{{ blog.titulo }}</td>
-                            <td>{{ blog.descricao }}</td>
-                            <td>{{ blog.assunto }}</td>
-                            <td class="edit-remove-column">
-                                <i class="fas fa-edit"></i>
-                                <i v-on:click="remover(blog.id)" class="fas fa-trash"></i>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <div v-if="blogsFiltrados.length == 0" class="alert alert-warning" role="alert">
-                    <i class="far fa-frown"></i>Não há blogs cadastrados para os filtros especificados.
-                </div>
-            </div>
         </div>
     </div>
+    
 </template>
 
 <script>
+
+import MenuLateral from './MenuLateral.vue'
+import MenuSuperior from './MenuSuperior.vue'
+
 export default {
     name: 'listar-blogs',
+    components: {
+        MenuSuperior,
+        MenuLateral
+    },
     data() {
         return {
             filtroTitulo: '',

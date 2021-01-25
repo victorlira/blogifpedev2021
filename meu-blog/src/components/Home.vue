@@ -1,25 +1,41 @@
 <template>
-    <div class="content">
-        <nav class="breadcrumb-menu">
-            <div class="nav-wrapper">
-                <div class="col s12">
-                <a href="#!" class="breadcrumb">Início</a>
+    <div>
+        <menu-superior />
+
+        <div class="page-content">
+            <menu-lateral />
+
+            <div class="content">
+                <nav class="breadcrumb-menu">
+                    <div class="nav-wrapper">
+                        <div class="col s12">
+                        <a href="#!" class="breadcrumb">Início</a>
+                        </div>
+                    </div>
+                </nav>
+
+                <div class="new-blog-content card">
+                    <h4> <i class="fab fa-chart"></i> Resumo</h4>
+
+                    <div class="row">
+                    </div>
                 </div>
-            </div>
-        </nav>
-
-        <div class="new-blog-content card">
-            <h4> <i class="fab fa-chart"></i> Resumo</h4>
-
-            <div class="row">
             </div>
         </div>
     </div>
 </template>
 
 <script>
+
+import MenuLateral from './MenuLateral.vue'
+import MenuSuperior from './MenuSuperior.vue'
+
 export default {
-    name: 'home'
+    name: 'home',
+    components: {
+        MenuSuperior,
+        MenuLateral
+    }
 }
 </script>
 
