@@ -5,7 +5,7 @@
     <div class="page-content">
       <menu-lateral />
 
-      <listar-blogs />
+      <router-view />
     </div>
   </div>
 </template>
@@ -13,14 +13,12 @@
 <script>
 import MenuLateral from './components/MenuLateral.vue'
 import MenuSuperior from './components/MenuSuperior.vue'
-import ListarBlogs from './components/ListarBlogs.vue'
 
 export default {
   name: 'App',
   components: {
     MenuSuperior,
-    MenuLateral,
-    ListarBlogs
+    MenuLateral
   }
 }
 </script>

@@ -39,7 +39,7 @@
                 <a :disabled="senha != confirmacaoSenha" v-on:click="cadastrar" class="waves-effect waves-light btn btn-large green botao-login">CADASTRAR</a>
               </div>
               <div class="row">
-                  <a class="waves-effect waves-light btn btn-large botao-login botao-novo-usuario">JÁ POSSUO UMA CONTA</a>
+                  <a v-on:click="irParaLogin" class="waves-effect waves-light btn btn-large botao-login botao-novo-usuario">JÁ POSSUO UMA CONTA</a>
               </div>
             </form>
           </div>
@@ -48,7 +48,12 @@
 
 <script>
 export default {
-  name: "novo-usuario",
+  name: 'novo-usuario',
+  methods: {
+    irParaLogin() {
+      this.$router.push({ name: 'login' });
+    }
+  }
 };
 </script>
 

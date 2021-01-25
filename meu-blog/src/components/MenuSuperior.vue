@@ -4,7 +4,7 @@
             <a href="#" class="brand-logo"><img src="https://i.ibb.co/WkYBCww/logo.png" alt=""></a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li><a href="sass.html"><i class="fa fa-search"></i></a></li>
-                <li><a href="collapsible.html">Sair</a></li>
+                <li><router-link to="/login">Sair</router-link></li>
             </ul>
         </div>
     </nav>

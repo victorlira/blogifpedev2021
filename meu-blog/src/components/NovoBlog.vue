@@ -37,7 +37,7 @@
                     </div>
 
                     <div class="row buttons-div">
-                    <a href="blogs.html" class="waves-effect waves-light btn red"><i class="material-icons right">close</i>CANCELAR</a>
+                    <router-link to="/blogs" class="waves-effect waves-light btn red"><i class="material-icons right">close</i>CANCELAR</router-link>
                     <a v-on:click="cadastrarBlog" class="waves-effect waves-light btn green"><i class="material-icons right">check</i>CADASTRAR</a>
                     </div>
                 </form>

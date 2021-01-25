@@ -12,7 +12,7 @@
         <div class="new-blog-content card">
             <h4> <i class="fab fa-microblog"></i> Blogs</h4>
 
-            <a href="novo-blog.html" class="button-add btn-floating waves-effect waves-light green"><i class="material-icons">add</i></a>
+            <router-link to="/novo-blog" class="button-add btn-floating waves-effect waves-light green"><i class="material-icons">add</i></router-link>
 
             <div class="row">
                 <div class="card filtros-card">

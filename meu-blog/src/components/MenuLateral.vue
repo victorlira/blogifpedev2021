@@ -11,23 +11,31 @@
 
         <div class="sidebar-menu">
             <div class="sidebar-menu-item">
-                <i class="fa fa-home"></i>
-                <span>Início</span>
+                <router-link to="/">
+                    <i class="fa fa-home"></i>
+                    <span>Início</span>
+                </router-link>
             </div>
 
             <div class="sidebar-menu-item menu-active">
-                <i class="fab fa-microblog"></i>
-                <span>Blogs</span>
+                <router-link to="/blogs">
+                    <i class="fab fa-microblog"></i>
+                    <span>Blogs</span>
+                </router-link>
             </div>
 
             <div class="sidebar-menu-item">
-                <i class="far fa-newspaper"></i>
-                <span>Posts</span>
+                <router-link to="/">
+                    <i class="far fa-newspaper"></i>
+                    <span>Posts</span>
+                </router-link>
             </div>
 
             <div class="sidebar-menu-item">
-                <i class="fas fa-chart-pie"></i>
-                <span>Relatórios</span>
+                <router-link to="/">
+                    <i class="fas fa-chart-pie"></i>
+                    <span>Relatórios</span>
+                </router-link>
             </div>
         </div>
     </div>
@@ -66,6 +74,10 @@ export default {
 .sidebar-menu-item {
     cursor: pointer;
     margin-bottom: 10px;
+}
+
+.sidebar-menu-item a { 
+    color: #555;
 }
 
 .sidebar-menu-item:hover {

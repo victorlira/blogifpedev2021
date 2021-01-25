@@ -26,13 +26,13 @@
                 </div>
               </div>
               <div class="row">
-                <a v-on:click="login" class="waves-effect waves-light btn btn-large green botao-login">ENTRAR</a>
+                <a v-on:click="entrar" class="waves-effect waves-light btn btn-large green botao-login">ENTRAR</a>
               </div>
               <div class="row">
                   <p class="esqueceu-a-senha">Esqueceu a senha?</p>
               </div>
               <div class="row">
-                  <a class="waves-effect waves-light btn btn-large botao-login botao-novo-usuario">CADASTRE-SE AGORA</a>
+                  <a v-on:click="irParaCadastro" class="waves-effect waves-light btn btn-large botao-login botao-novo-usuario">CADASTRE-SE AGORA</a>
               </div>
             </form>
           </div>
@@ -42,6 +42,25 @@
 <script>
 export default {
   name: 'login',
+  data() {
+    return {
+      exibirMensagemErro: false,
+      email: '',
+      senha: ''
+    }
+  },
+  methods: {
+    irParaCadastro() {
+      this.$router.push({ name: 'cadastro' });
+    },
+    entrar() {
+      if (this.email === 'admin@gmail.com' && this.senha === '123456') {
+        this.$router.push({ name: 'home' });
+      } else {
+        this.exibirMensagemErro = true;
+      }
+    }
+  }
 };
 </script>
 
