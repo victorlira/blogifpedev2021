@@ -25,7 +25,7 @@
             </div>
 
             <div class="sidebar-menu-item">
-                <router-link to="/">
+                <router-link to="/posts">
                     <i class="far fa-newspaper"></i>
                     <span>Posts</span>
                 </router-link>

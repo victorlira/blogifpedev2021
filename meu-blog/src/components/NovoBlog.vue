@@ -21,25 +21,28 @@
 
                     <div class="row">
                         <form class="col s12">
-                            <div class="row">
-                            <div class="input-field col s12">
-                                <input id="title" type="text" class="validate" v-model="titulo">
-                                <label for="title">Título</label>
-                            </div>
-                            </div>
-
-                            <div class="row">
-                            <div class="input-field col s12">
-                                <textarea id="description" class="materialize-textarea" v-model="descricao"></textarea>
-                                <label for="description">Descrição</label>
-                            </div>
+                            <div class="row">   
+                                <div class="input-field col s12">
+                                    <i class="material-icons prefix">subtitles</i>
+                                    <input id="titulo" type="text" class="validate" v-model="titulo">
+                                    <label for="titulo">Título</label>
+                                </div>
                             </div>
 
-                            <div class="row">
-                            <div class="input-field col s12">
-                                <input id="assunto" type="text" class="validate" v-model="assunto">
-                                <label for="assunto">Assunto</label>
+                            <div class="row">   
+                                <div class="input-field col s12">
+                                    <i class="material-icons prefix">edit</i>
+                                    <input id="descricao" type="text" class="validate" v-model="descricao">
+                                    <label for="descricao">Descrição</label>
+                                </div>
                             </div>
+
+                            <div class="row">   
+                                <div class="input-field col s12">
+                                    <i class="material-icons prefix">subject</i>
+                                    <input id="assunto" type="text" class="validate" v-model="assunto">
+                                    <label for="assunto">Assunto</label>
+                                </div>
                             </div>
 
                             <div class="row buttons-div">

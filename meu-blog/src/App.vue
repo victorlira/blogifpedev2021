@@ -18,4 +18,8 @@ export default {
     display: flex;
     width: 100vw;
 }
+
+.btn.red {
+  margin-right: 10px;
+}
 </style>
